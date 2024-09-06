@@ -2,6 +2,7 @@ import { Form } from "@remix-run/react";
 import { useState } from 'react';
 import SignUp from './SignUp';
 import Portal from './Portal';
+import { createContainer } from './Portal';
 
 const Login = () => {
   const [showSignup, setShowSignup] = useState(false);
@@ -26,9 +27,8 @@ const Login = () => {
         <input type="submit" value="Login" />
       </Form>
       <span>Don&apos;t have an account? <button onClick={() => setShowSignup(true)}>Sign Up</button></span>
-      {showSignup && <Portal SignUp target={document.body}>
-        <SignUp />
-      </Portal>}
+
+
     </div>
   );
 };

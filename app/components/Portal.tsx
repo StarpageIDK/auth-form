@@ -25,4 +25,22 @@ const Portal = (props: PortalProps) => {
     return mount ? createPortal(children, mount) : null;
 };
 
+const createContainer = (id: string, toMount?: HTMLElement) => {
+    const elementContainer = document.createElement('div');
+
+    if (document.getElementById(id)) {
+        return;
+    }
+
+    elementContainer.setAttribute('id', id);
+
+    if (toMount) {
+        toMount.appendChild(elementContainer);
+        return;
+    }
+
+    document.body.appendChild(elementContainer);
+}
+
+export { createContainer };
 export default Portal;

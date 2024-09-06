@@ -1,6 +1,6 @@
 const SignUp = () => {
     return (
-        <div>
+        <div className="modal-signup">
             <h1>Signup</h1>
         </div>
     );
