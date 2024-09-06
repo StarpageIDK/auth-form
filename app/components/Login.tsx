@@ -5,9 +5,28 @@ import SignUp from './SignUp';
 const Login = () => {
   const [showSignup, setShowSignup] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (email: string, password: string) => {
+    try {
+      const response = await fetch('', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+      console.log('Login successful:', data);
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    await handleLogin(email, password);
   };
 
   const handleSignupOpen = () => {
