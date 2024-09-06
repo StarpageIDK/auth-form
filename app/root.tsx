@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import Login from "./components/Login";
+import LoginPage from './routes/login';
 
 export function Layout() {
   return (
@@ -17,7 +17,7 @@ export function Layout() {
         <Links />
       </head>
       <body>
-        <Login />
+        <LoginPage />
         <ScrollRestoration />
         <Scripts />
       </body>

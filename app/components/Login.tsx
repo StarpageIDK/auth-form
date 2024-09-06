@@ -12,8 +12,16 @@ const Login = () => {
     console.log("Form submitted");
   };
 
+  const handleSignupOpen = () => {
+    setShowSignup(true);
+  };
+
+  const handleSignupClose = () => {
+    setShowSignup(false);
+  };
+
   return (
-    <div className="loginContainer">
+    <div className="login-container">
       <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
         <div className="emailTab">
@@ -26,7 +34,8 @@ const Login = () => {
         </div>
         <input type="submit" value="Login" />
       </Form>
-      <span>Don&apos;t have an account? <button onClick={() => setShowSignup(true)}>Sign Up</button></span>
+      <span>Don&apos;t have an account? <button onClick={handleSignupOpen}>Sign Up</button></span>
+      {showSignup && <SignUp />}
 
 
     </div>
